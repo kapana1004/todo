@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/todo/static/css/main.59b09a36.css",
+    "main.js": "/todo/static/js/main.cdff0233.js",
+    "index.html": "/todo/index.html",
+    "static/media/icon-moon.svg": "/todo/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
+    "main.59b09a36.css.map": "/todo/static/css/main.59b09a36.css.map",
+    "main.cdff0233.js.map": "/todo/static/js/main.cdff0233.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59b09a36.css",
+    "static/js/main.cdff0233.js"
+  ]
+}
