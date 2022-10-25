@@ -3,9 +3,45 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+#root{
 
-    background-color: #F2F2F2;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+
+ 
 }
+
+*{
+
+  margin: 0;
+  padding: 0;
+}
+
+.colorCategory{
+
+  color: red;
+}
+
+
+   
+
+
+
+.checkBox{
+     
+  display: block;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #E3E4F1;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.checkBox-checked {
+    background: no-repeat center url("./images/path.png"), linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    color: #25273D;
+    cursor: pointer;
+};
+
