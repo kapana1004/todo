@@ -53,13 +53,15 @@ const Todo = (props) => {
 
   const [items, setItems] = useState(6);
 
-  // const countItem = () => {
-  //   todoList.map((todo) => {
-  //     if (todo.status === false) {
-  //       setItems(items + 1);
-  //     }
-  //   });
-  // };
+  const handleClear = () => {
+    const clearList = [...todoList];
+    console.log("hello");
+    const filterClear = clearList.filter((todoItem) => {
+      return !todoItem.status;
+    });
+
+    setFilteredList(filterClear);
+  };
 
   const changeHandling = (event) => {
     if (event.key === "Enter") {
@@ -150,10 +152,13 @@ const Todo = (props) => {
             })}
 
             <div className=" rounded-[5px] w-[327px] h-[50px] flex justify-between p-[20px] items-center">
-              <span className=" cursor-pointer text-xs text-gray-400">
+              <span className="  text-xs text-gray-400">
                 {items} items left
               </span>
-              <span className=" cursor-pointer text-xs text-gray-400">
+              <span
+                className=" cursor-pointer text-xs text-gray-400"
+                onClick={handleClear}
+              >
                 Clear Completed
               </span>
             </div>
