@@ -1,14 +1,21 @@
 
 
 import Todo from './components/todo-list';
+import  { useState } from "react";
 
-import styled from "styled-components"
 
-import bgImage from './images/bg-mobile-light.jpg'
+
 
 function App() {
+
+  const [dark, setDark] = useState(false);
+
+
+
   return (
-    <div className='  bg-[url(./images/bg-mobile-light.jpg)] bg-no-repeat bg-[#F2F2F2] min-h-screen' > 
+    <div className= {` ${ dark ? "bg-darkImg bg-[#171823]" :  "bg-lightImg bg-[#F2F2F2]" } bg-no-repeat min-h-screen `}> 
+
+         {/* why doesn`t work bg-url? */}
     
 
  
@@ -18,9 +25,9 @@ function App() {
     
    
 
-  <Todo />
+  <Todo dark ={dark} setDark = {setDark} />
  
-      
+  
       
    
 
@@ -32,4 +39,14 @@ function App() {
 export default App;
 
 
+// function toggleTheme(e) {
+//   if (colorTheme === "dark") {
+//     setColorTheme('light');
+//     e.target.parentElement.innerHTML = moon;
+//   } else if (colorTheme === 'light') {
+//     setColorTheme('dark');
+//     e.target.parentElement.innerHTML = sun;
+//   }
+// }
 
+//https://jennstirpe.github.io/todo-app/

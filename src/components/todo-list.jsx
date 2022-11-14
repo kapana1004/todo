@@ -1,7 +1,6 @@
-import { buildQueries } from "@testing-library/react";
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom/client";
+import React, { useState } from "react";
 import Moonimg from "../images/icon-moon.svg";
+import Sun from "../images/icon-sun.svg";
 import path from "../images/path.png";
 import CheckBox from "./checkBox";
 
@@ -52,6 +51,10 @@ const Todo = (props) => {
   const [newId, setNewId] = useState(7);
 
   const [items, setItems] = useState(6);
+
+  const themeHandle = () => {
+    props.setDark(!props.dark);
+  };
 
   const handleClear = () => {
     const clearList = [...todoList];
@@ -116,13 +119,22 @@ const Todo = (props) => {
           <div className="flex justify-between flex-row pt-[50px] items-center">
             <span className=" text-3xl ml-[24px]  text-white "> T O D O </span>
 
-            <img className=" w-[20px] h-[20px] " src={Moonimg} alt="moon" />
+            <img
+              className=" w-[20px] h-[20px] cursor-pointer "
+              src={props.dark ? Sun : Moonimg}
+              alt="moon"
+              onClick={themeHandle}
+            />
           </div>
 
-          <div className=" mt-[20px] flex flex-row ml-[1.5rem] w-[327px] bg-white rounded-[5px]">
-            <div className=" border border-gray-600 ml-[20px] mt-[14px] w-[20px] h-[20px] bg-white rounded-[50px] flex justify-center items-center">
+          <div
+            className={`mt-[20px] flex flex-row ml-[1.5rem] w-[327px] rounded-[5px] ${
+              props.dark ? "bg-[#171823]" : "bg-white"
+            }`}
+          >
+            <div className=" border border-gray-600 ml-[20px] mt-[14px] w-[20px] h-[20px] bg-transfarent rounded-[50px] flex justify-center items-center">
               {" "}
-              <img src={path} />{" "}
+              {props.dark && <img src={path} alt="path" />}{" "}
             </div>
 
             <input
@@ -130,13 +142,19 @@ const Todo = (props) => {
               value={inputValue}
               onKeyDown={changeHandling}
               onChange={(event) => setInputValue(event.target.value)}
-              className=" outline-none w-[270px] ml-[20px] resize-none  h-[48px]   placeholder:text-xs text-[13px] rounded-[5px]"
+              className={` ${
+                props.dark ? "text-[#C8CBE7]" : "text-[#393A4B]"
+              } bg-transparent outline-none w-[270px] ml-[20px] resize-none  h-[48px]   placeholder:text-xs text-[13px] rounded-[5px]`}
               placeholder="Create a new todo…"
             ></input>
           </div>
         </div>
         <div>
-          <ul className=" w-[327px] ml-[24px] bg-white mt-[20px]  rounded-[5px]">
+          <ul
+            className={` w-[327px] ml-[24px] ${
+              props.dark ? "bg-[#25273D]" : "bg-white"
+            }  mt-[20px]  rounded-[5px] `}
+          >
             {filteredList.map((todoItem, index) => {
               return (
                 <CheckBox
@@ -146,17 +164,19 @@ const Todo = (props) => {
                   todoList={todoList}
                   setTodoList={setTodoList}
                   setItems={setItems}
+                  dark={props.dark}
+                  setDark={props.setDark}
                   key={index}
                 />
               );
             })}
 
             <div className=" rounded-[5px] w-[327px] h-[50px] flex justify-between p-[20px] items-center">
-              <span className="  text-xs text-gray-400">
+              <span className="  text-xs text-[#5B5E7E]">
                 {items} items left
               </span>
               <span
-                className=" cursor-pointer text-xs text-gray-400"
+                className=" cursor-pointer text-xs text-[#5B5E7E]"
                 onClick={handleClear}
               >
                 Clear Completed
@@ -164,10 +184,14 @@ const Todo = (props) => {
             </div>
           </ul>
 
-          <div className=" rounded-[5px] w-[327px] h-[48px]  flex justify-around items-center mt-[20px] ml-[25px] bg-white ">
+          <div
+            className={`rounded-[5px] w-[327px] h-[48px]  flex justify-around items-center mt-[20px] ml-[25px] pl-[80px] pr-[80px] ${
+              props.dark ? "bg-[#25273D]" : "bg-white"
+            }`}
+          >
             <span
               className={`text-[14px] font-sans cursor-pointer ${
-                category === "all" ? "text-blue-600" : "text-gray-700"
+                category === "all" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
               }`}
               onClick={handleFilter}
             >
@@ -175,7 +199,7 @@ const Todo = (props) => {
             </span>
             <span
               className={`text-[14px] font-sans cursor-pointer ${
-                category === "active" ? "text-blue-600" : "text-gray-700"
+                category === "active" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
               }`}
               onClick={handlingActive}
             >
@@ -183,7 +207,7 @@ const Todo = (props) => {
             </span>
             <span
               className={`text-[14px] font-sans cursor-pointer ${
-                category === "completed" ? "text-blue-600" : "text-gray-700"
+                category === "completed" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
               }`}
               onClick={handleComplete}
             >

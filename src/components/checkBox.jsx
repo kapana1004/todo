@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import path from "../images/path.png";
 import cross from "../images/icon-cross.svg";
 
@@ -9,6 +9,8 @@ const CheckBox = ({
   filteredList,
   setFilteredList,
   setItems,
+  dark,
+  setDark,
 }) => {
   // const [completed, setCompleted] = useState(false)
 
@@ -16,7 +18,7 @@ const CheckBox = ({
     // setCompleted(!completed)
 
     const newList = [...filteredList];
-    console.log(newList);
+
     const changedArray = newList.map((todo) => {
       if (todo.id === id) {
         todo.status = !todo.status;
@@ -34,7 +36,7 @@ const CheckBox = ({
     ).length;
     setItems(actItemsLength);
     console.log(filteredList);
-  }, [filteredList]);
+  }, [filteredList, setItems]);
 
   const handleDelete = (todoItemId) => {
     const restoredList = filteredList.filter((todoItem) => {
@@ -55,19 +57,22 @@ const CheckBox = ({
     <li
       className={` ${
         todoItem.status && "line-through"
-      } relative  pl-[24px] border-y-[1px] h-[52px] text-xs pt-[12px] text-slate-700 w-[100%] flex flex-row rounded-[5px]`}
+      } relative  pl-[24px] border-b-[0.5px] h-[52px] text-xs pt-[12px] w-[100%] flex flex-row rounded-[5px]`}
     >
       <div
         className={` border border-gray-600 cursor-pointer mr-[12px] w-[20px] h-[20px] ${
           todoItem.status
             ? "bg-gradient-to-br from-blue-500 to-pink-500"
-            : "bg-white"
+            : "bg-transfarent"
         }  rounded-[50px] flex justify-center items-center`}
         onClick={() => handlingClick(todoItem.id)}
       >
-        <img src={path} alt="path" />
+        {todoItem.status && <img src={path} alt="path" />}
       </div>
-      {todoItem.name}
+      <span className={` ${dark ? "text-[#C8CBE7]" : "text-slate-700"}`}>
+        {" "}
+        {todoItem.name}{" "}
+      </span>
 
       <img
         className=" cursor-pointer w-[12px] h-[12px] absolute top-[28%] right-[5%]"
@@ -80,5 +85,3 @@ const CheckBox = ({
 };
 
 export default CheckBox;
-
-//don`t work checkbox on new addded task
