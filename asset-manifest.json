@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/todo/static/css/main.6d63767f.css",
-    "main.js": "/todo/static/js/main.533fd2ed.js",
+    "main.css": "/todo/static/css/main.0ffaff6a.css",
+    "main.js": "/todo/static/js/main.6d6203fc.js",
     "index.html": "/todo/index.html",
+    "static/media/icon-sun.svg": "/todo/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
     "static/media/icon-moon.svg": "/todo/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
     "static/media/icon-cross.svg": "/todo/static/media/icon-cross.6ee81d30b75cab19d6f7314624fcc4d6.svg",
-    "main.6d63767f.css.map": "/todo/static/css/main.6d63767f.css.map",
-    "main.533fd2ed.js.map": "/todo/static/js/main.533fd2ed.js.map"
+    "main.0ffaff6a.css.map": "/todo/static/css/main.0ffaff6a.css.map",
+    "main.6d6203fc.js.map": "/todo/static/js/main.6d6203fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d63767f.css",
-    "static/js/main.533fd2ed.js"
+    "static/css/main.0ffaff6a.css",
+    "static/js/main.6d6203fc.js"
   ]
 }
