@@ -41,8 +41,8 @@ const CheckBox = ({
   const handleDelete = (todoItemId) => {
     const restoredList = filteredList.filter((todoItem) => {
       return todoItemId !== todoItem.id;
-      setFilteredList(restoredList);
-      setTodoList(restoredList);
+      // setFilteredList(restoredList);
+      // setTodoList(restoredList);
     });
 
     const newList = filteredList.filter((todoItem) => {
@@ -57,7 +57,7 @@ const CheckBox = ({
     <li
       className={` ${
         todoItem.status && "line-through"
-      } relative  pl-[24px] border-b-[0.5px] h-[52px] text-xs pt-[12px] w-[100%] flex flex-row rounded-[5px]`}
+      } relative  pl-[24px] border-b-[0.5px] h-[52px] text-xs pt-[20px] w-[100%] flex flex-row rounded-[5px]  xl:h-[64px] `}
     >
       <div
         className={` border border-gray-600 cursor-pointer mr-[12px] w-[20px] h-[20px] ${
@@ -69,7 +69,11 @@ const CheckBox = ({
       >
         {todoItem.status && <img src={path} alt="path" />}
       </div>
-      <span className={` ${dark ? "text-[#C8CBE7]" : "text-slate-700"}`}>
+      <span
+        className={` pt-[3px] ${
+          dark ? "text-[#C8CBE7]" : "text-slate-700"
+        } xl:text-[18px]`}
+      >
         {" "}
         {todoItem.name}{" "}
       </span>

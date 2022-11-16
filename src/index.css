@@ -3,6 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+  .bgImage {
+
+    background-size: 100% 300px;
+   
+
+  
+  }
+
+  /* .lightDesk {
+    height: 300px;
+  } */
+}
+
 #root{
 
   display: flex;

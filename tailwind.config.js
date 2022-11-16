@@ -2,11 +2,23 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+
+   
     extend: {
+
+      backgroundsize: {
+
+        '100%': '100% 300px' 
+      
+      },
+     
+      
 
       backgroundImage: {
         'darkImg': "url('./images/bg-mobile-dark.jpg')",
         'lightImg': "url('./images/bg-mobile-light.jpg')",
+        'darkDesk': "url('./images/bg-desktop-dark.jpg')",
+        'lightDesk': "url('./images/bg-desktop-light.jpg')",
 
 
       },

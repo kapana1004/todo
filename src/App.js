@@ -13,7 +13,7 @@ function App() {
 
 
   return (
-    <div className= {` ${ dark ? "bg-darkImg bg-[#171823]" :  "bg-lightImg bg-[#F2F2F2]" } bg-no-repeat min-h-screen `}> 
+    <div className= {` flex justify-center ${ dark ? "bg-darkImg bgImage bg-[#171823]" :  "bg-lightImg bgImage bg-[#F2F2F2]" } bg-no-repeat min-h-screen xl:${dark ? "bg-darkDesk bgImage" : "bg-lightDesk bgImage"} xl:bg-100% w-[100%] flex justify-center `}> 
 
          {/* why doesn`t work bg-url? */}
     
