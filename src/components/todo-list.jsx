@@ -204,7 +204,7 @@ const Todo = (props) => {
               All
             </span>
             <span
-              className={`text-[14px] font-sans cursor-pointer ${
+              className={`text-[14px] font-sans cursor-pointer ml-[24px] ${
                 category === "active" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
               }`}
               onClick={handlingActive}
