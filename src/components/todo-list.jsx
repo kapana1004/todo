@@ -196,15 +196,15 @@ const Todo = (props) => {
               {items} items left
             </span>
             <span
-              className={`text-[14px] font-sans cursor-pointer ${
+              className={`text-[14px] ml-[30px] font-sans cursor-pointer ${
                 category === "all" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
-              } xl:ml-[96px] `}
+              } xl:ml-[66px]`}
               onClick={handleFilter}
             >
               All
             </span>
             <span
-              className={`text-[14px] font-sans cursor-pointer ml-[24px] ${
+              className={`text-[14px] font-sans cursor-pointer  ${
                 category === "active" ? "text-[#3A7CFD]" : "text-[#5B5E7E]"
               }`}
               onClick={handlingActive}
