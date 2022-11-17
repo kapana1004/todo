@@ -117,7 +117,7 @@ const Todo = (props) => {
       <div className=" justify-center items-center ">
         <div className=" items-center ">
           <div className="flex justify-between flex-row pt-[50px]  items-center xl:w-[540px] xl:pt-[70px] ">
-            <span className=" text-3xl ml-[24px]  text-white  xl:text-[40px]">
+            <span className=" text-3xl   text-white  xl:text-[40px]">
               {" "}
               T O D O{" "}
             </span>
