@@ -17,7 +17,7 @@ const CheckBox = ({
   const handlingClick = (id) => {
     // setCompleted(!completed)
 
-    const newList = [...filteredList];
+    const newList = [...todoList];
 
     const changedArray = newList.map((todo) => {
       if (todo.id === id) {
@@ -27,7 +27,7 @@ const CheckBox = ({
       return todo;
     });
 
-    setFilteredList(changedArray);
+    setTodoList(changedArray);
   };
 
   useEffect(() => {

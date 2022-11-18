@@ -42,7 +42,7 @@ const todoItems = [
 const Todo = (props) => {
   const [todoList, setTodoList] = useState(todoItems);
 
-  const [filteredList, setFilteredList] = useState(todoItems);
+  // const [filteredList, setFilteredList] = useState(todoItems);
 
   const [category, setCategory] = useState("all");
 
@@ -52,9 +52,24 @@ const Todo = (props) => {
 
   const [items, setItems] = useState(6);
 
+  const activeArray = todoList.slice().filter((todo) => {
+    return todo.status === false;
+  });
+
+  const completArray = todoList.slice().filter((todo) => {
+    return todo.status;
+  });
+
   const themeHandle = () => {
     props.setDark(!props.dark);
   };
+
+  const filteredList =
+    category === "all"
+      ? todoList
+      : category === "active"
+      ? activeArray
+      : completArray;
 
   const handleClear = () => {
     const clearList = [...todoList];
@@ -63,7 +78,8 @@ const Todo = (props) => {
       return !todoItem.status;
     });
 
-    setFilteredList(filterClear);
+    // setFilteredList(filterClear);
+    setTodoList(filterClear);
   };
 
   const changeHandling = (event) => {
@@ -75,28 +91,29 @@ const Todo = (props) => {
         status: false,
       };
       setNewId(newId + 1);
-      const newTodoItems = [...filteredList, newTask];
+      const newTodoItems = [...todoList, newTask];
 
-      setFilteredList(newTodoItems);
+      // setFilteredList(newTodoItems);
+      setTodoList(newTodoItems);
 
       setInputValue("");
     }
   };
 
   const handlingActive = () => {
-    const copiedTodoList = [...todoList];
+    // const copiedTodoList = [...todoList];
 
-    const activeArray = copiedTodoList.filter((todo) => {
-      return todo.status === false;
-    });
+    // const activeArray = copiedTodoList.filter((todo) => {
+    //   return todo.status === false;
+    // });
 
     setCategory("active");
 
-    setFilteredList(activeArray);
+    // setFilteredList(activeArray);
   };
 
   const handleFilter = () => {
-    setFilteredList(todoList);
+    // setFilteredList(todoList);
 
     setCategory("all");
   };
@@ -104,11 +121,11 @@ const Todo = (props) => {
   const handleComplete = () => {
     const copiedTodoList = [...todoList];
 
-    const activeArray = copiedTodoList.filter((todo) => {
+    copiedTodoList.filter((todo) => {
       return todo.status === true;
     });
 
-    setFilteredList(activeArray);
+    // setFilteredList(activeArray);
     setCategory("completed");
   };
 
@@ -161,7 +178,7 @@ const Todo = (props) => {
             {filteredList.map((todoItem, index) => {
               return (
                 <CheckBox
-                  setFilteredList={setFilteredList}
+                  // setFilteredList={setFilteredList}
                   filteredList={filteredList}
                   todoItem={todoItem}
                   todoList={todoList}
@@ -233,3 +250,5 @@ const Todo = (props) => {
 };
 
 export default Todo;
+
+//complete doesn`t work
